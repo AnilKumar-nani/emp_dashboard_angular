@@ -1,0 +1,284 @@
+<div class="container-fluid">
+  <div class="navbar navbar-fixed-top" style="background-color: rgb(82, 82, 211);color:white;height:40px">
+    <div class="row">
+
+      <div class="col-lg-2">
+        <div class="edge">
+          <i class="fa fa-bars" style="font-size:24px"></i>&nbsp;&nbsp;
+
+          <button class="menu"><i class="fa fa-user-circle-o" style="font-size:24px"></i></button> &nbsp;&nbsp;&nbsp;
+
+          <strong style="font-size: 20px;margin-top:15px;">CuteHR</strong>
+        </div>
+      </div>
+      <div class="col-lg-8 ">
+
+      </div>
+      <div class="col-lg-2" style="margin-left: 860px;height:45px;">
+
+
+
+        <i class="fa fa-question-circle" style="font-size:28px;margin-top: 7px;"></i>&nbsp;&nbsp;&nbsp;
+
+
+
+        <span
+          style="color:black;background-color: rgb(32, 216, 32);border-radius:5px;padding: 5px; margin-bottom: 4px;">{{date
+          | date:
+          "HH:mm:ss"}}</span>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+  <div style="margin-top: 3.5%;">
+    <div class="row">
+      <div class="col-lg-3 col-md-3 col-sm-3">
+        <div class="dash-board">
+          <ul>
+            <li><strong style="font-size: 17px;">Your Apps</strong></li>
+            <li class="li" (click)="setAlert()">
+              <div style="display: flex;">
+                <div>
+                  <i class="fa fa-clock-o" style="font-size:22px ; color:blue"></i>&nbsp;&nbsp;&nbsp;
+                  <label style="font-size: 14px;">Timer</label>
+                </div>
+
+              </div>
+            </li>
+            <li class="li" (click)="setAlert()">
+              <div style="display: flex;">
+                <div>
+                  <i class="fa fa-windows" style="font-size:22px ; color:blue"></i>&nbsp;&nbsp;&nbsp;
+                  <label style="font-size: 14px;">Projects</label>
+                </div>
+              </div>
+            </li>
+            <li class="li" (click)="setAlert()">
+              <div style="display: flex;">
+                <div>
+                  <i class="fa fa-edit" style="font-size:22px ; color:blue"></i>
+
+                  &nbsp;&nbsp;&nbsp;<label style="font-size: 14px;">Reports</label>
+
+                  &nbsp;&nbsp;&nbsp;<i class="fa fa-angle-down" style="font-size:28px ;"></i>
+                </div>
+              </div>
+            </li>
+            <li><strong style="font-size: 17px;">Your Company</strong></li>
+            <li class="li" (click)="makeShowEmployeesTrue()">
+              <div style="display: flex;">
+                <div>
+                  <i class="fa fa-users" style="font-size:22px ; color:blue"></i>
+
+                  &nbsp;&nbsp;&nbsp;<span class="button" style="font-size: 14px;">Employees</span>
+                </div>
+              </div>
+            </li>
+            <li class="li" (click)="setAlert()">
+              <div style="display: flex;">
+                <div>
+                  <i class="fas fa-money-check-alt" style="font-size:22px ; color:blue"></i>
+
+                  &nbsp;&nbsp;&nbsp;<label style="font-size: 14px;">Payroll</label>
+                </div>
+              </div>
+            </li>
+            <li class="li" (click)="setAlert()">
+              <div style="display: flex;">
+                <div>
+                  <i class="fa fa-user" style="font-size:22px ; color:blue"></i>
+
+                  &nbsp;&nbsp;&nbsp;<label style="font-size: 14px;">ApplicantTracking</label>
+                </div>
+              </div>
+            </li>
+            <li class="li" (click)="setAlert()">
+              <div style="display: flex;">
+                <div>
+                  <i class="fa fa-male" style="font-size:22px ; color:blue"></i>
+
+                  &nbsp;&nbsp;&nbsp;<label style="font-size: 14px;">Client</label>
+                </div>
+              </div>
+            </li>
+            <li class="li" (click)="setAlert()">
+              <div style="display: flex;">
+                <div>
+                  <i class="fa fa-dollar" style="font-size:22px ; color:blue"></i>
+
+                  &nbsp;&nbsp;&nbsp;<label style="font-size: 14px;">Invoice</label>
+                </div>
+              </div>
+            </li>
+            <li class="li" (click)="setAlert()">
+              <div style="display: flex;">
+                <div>
+                  <i class="fa fa-calendar-check-o" style="font-size:22px ; color:blue"></i>
+
+                  &nbsp;&nbsp;&nbsp;<label style="font-size: 14px;">Events</label>
+                </div>
+              </div>
+            </li>
+            <li class="li" (click)="setAlert()">
+              <div style="display: flex;">
+                <div>
+                  <i class="fa fa-cog" style="font-size:22px ; color:blue"></i>
+
+                  &nbsp;&nbsp;&nbsp;<label style="font-size: 14px;">Settings</label> &nbsp;&nbsp;&nbsp;
+                  <i class="fa fa-angle-down" style="font-size:28px ;"></i>
+                </div>
+              </div>
+            </li>
+            <li><strong style="font-size: 17px;">Support</strong></li>
+            <li class="li" (click)="setAlert()">
+              <div style="display: flex;">
+                <div>
+                  <i class="fas fa-book-open" style="font-size:22px ; color:blue"></i>&nbsp; &nbsp; &nbsp;
+
+                  &nbsp;&nbsp;<label style="font-size: 14px;">Knowledge Base</label>
+                </div>
+              </div>
+            </li>
+
+
+          </ul>
+        </div>
+      </div>
+      <div *ngIf="displayemployee && !emp_rec" class="col-lg-8 col-md-8 col-sm-8 employee-info">
+
+        <div class="row">
+          <div class="col-lg-6">
+            <h5 class="emp-cmp-title">COMPANY EMPLOYEES</h5>
+          </div>
+          <div class="col-lg-6">
+            <div class="row">
+              <div class="col-lg-3">
+
+              </div>
+
+              <div class="col-lg-3 emp_live_org ">
+                <div>
+                  <span>Employees</span>
+                </div>
+              </div>
+              <div class="col-lg-3 emp_live_org ">
+                <div>
+                  <span>Live View</span>
+                </div>
+              </div>
+              <div class="col-lg-3 emp_live_org">
+                <div>
+                  <span>Org Chat</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="row">
+              <div class="col-lg-5">
+                <input placeholder="Search for Employee" class="search-add" type="text" />
+              </div>
+              <div class="col-lg-1">
+                <select class="active">
+                  <option>Status</option>
+                  <option>Active</option>
+                  <option>In Active</option>
+                </select>
+              </div>
+
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="row">
+              <div class="col-lg-3">
+
+              </div>
+              <div class="col-lg-4">
+                <div class="row">
+
+                  <div class="col-lg-12 add_import emp_live_org">
+                    <label>Add Employees</label>
+                  </div>
+
+                </div>
+
+              </div>
+              <div class="col-lg-5">
+                <div class="row">
+
+                  <div class="col-lg-12 add_import emp_live_org">
+                    <label>Import Employees</label>
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+        <div style="margin-top:30px">
+          <div class="emp-table-data">
+            <table class="table">
+              <thead>
+                <tr style="height: 30px;">
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Contact</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr *ngFor="let emp of empl_data" (click)="getShowData(emp)">
+                  <td>{{emp.id}}</td>
+                  <td><img src={{emp.avatar}} />{{emp.first_name+' '+emp.last_name}}</td>
+                  <td>{{emp.email}}</td>
+                </tr>
+              </tbody>
+
+            </table>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="emp_rec" class="col-lg-8 col-md-8 col-sm-8 employee-info">
+
+
+        <table class="table">
+
+          <tr>
+            <td>ID</td>
+            <td>{{display_data.id}}</td>
+          </tr>
+          <tr>
+            <td>FirstName</td>
+
+            <td>{{display_data.first_name}}</td>
+          </tr>
+          <tr>
+            <td>LastName</td>
+            <td>{{display_data.last_name}}</td>
+          </tr>
+          <tr>
+            <td>Email</td>
+            <td>{{display_data.email}}</td>
+          </tr>
+          <tr>
+            <td>Photo Id</td>
+            <td><img src={{display_data.avatar}} /></td>
+          </tr>
+        </table>
+      </div>
+
+    </div>
+  </div>
+
+</div>
